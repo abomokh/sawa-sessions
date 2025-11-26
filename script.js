@@ -125,16 +125,29 @@ function openCourseModal(course) {
         return `
         <div class="session-accordion ${session.isMarathon ? 'marathon' : ''} ${isTBD ? 'tbd' : ''}" data-session-index="${index}">
             <div class="session-accordion-header" onclick="toggleAccordion(${index})">
-                <div class="session-summary">
-                    <div class="session-summary-left">
-                        ${!isTBD ? `<span class="session-number-badge">#${sessionNumber}</span>` : ''}
-                        ${session.isMarathon ? '<span class="session-type-badge marathon-badge">ماراثون</span>' : ''}
-                        ${isTBD ? '<span class="session-type-badge tbd-badge">سيُحدد لاحقاً</span>' : ''}
+                <div class="session-number-badge">#${sessionNumber}</div>
+                <div class="session-summary-content">
+                    <div class="session-summary-line">
+                        ${session.isMarathon ? '<span class="session-type-badge marathon-badge"><i class="fas fa-bolt"></i> جلسة ماراثون</span>' : ''}
+                        ${isTBD ? '<span class="session-type-badge tbd-badge"><i class="fas fa-clock"></i> سيُحدد لاحقاً</span>' : ''}
                     </div>
-                    <div class="session-summary-main">
-                        ${session.date && session.date !== 'TBD' ? `<span class="summary-date">${session.date}</span>` : ''}
-                        <span class="summary-day">${session.day}</span>
-                        ${!isTBD ? `<span class="summary-time">${session.time}</span>` : ''}
+                    <div class="session-summary-info">
+                        ${session.date && session.date !== 'TBD' ? `
+                            <span class="info-item">
+                                <i class="fas fa-calendar"></i>
+                                ${session.date}
+                            </span>
+                        ` : ''}
+                        <span class="info-item">
+                            <i class="fas fa-calendar-day"></i>
+                            ${session.day}
+                        </span>
+                        ${!isTBD ? `
+                            <span class="info-item">
+                                <i class="fas fa-clock"></i>
+                                ${session.time}
+                            </span>
+                        ` : ''}
                     </div>
                 </div>
                 <button class="accordion-toggle" aria-label="توسيع/طي">
