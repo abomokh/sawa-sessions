@@ -537,113 +537,197 @@ body {
 .session-list {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: var(--spacing-xs);
 }
 
-.session-item {
-    background-color: var(--bg-light);
-    padding: var(--spacing-md);
-    border-radius: 8px;
+/* Scrollbar styling for session list */
+.session-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.session-list::-webkit-scrollbar-track {
+    background: var(--bg-lighter);
+    border-radius: 10px;
+}
+
+.session-list::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+/* ===========================
+   Accordion Session Styles
+   =========================== */
+
+.session-accordion {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
     transition: all 0.3s ease;
 }
 
-.session-item:hover {
-    background-color: var(--bg-lighter);
-    box-shadow: var(--shadow-sm);
+.session-accordion:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-.session-item.marathon {
-    background-color: var(--marathon-bg);
+.session-accordion.marathon {
     border: 2px solid var(--marathon-color);
+    background: linear-gradient(135deg, var(--marathon-bg) 0%, rgba(192, 0, 0, 0.01) 100%);
 }
 
-.session-item.tbd {
+.session-accordion.tbd {
     background-color: #FFF9E6;
     border: 2px dashed var(--text-light);
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
-.session-header-row {
+.session-accordion-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
     gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-sm);
+}
+
+.session-accordion-header:hover {
+    background-color: rgba(192, 0, 0, 0.03);
+}
+
+.session-accordion.active .session-accordion-header {
+    background-color: rgba(192, 0, 0, 0.05);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.session-summary {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex: 1;
     flex-wrap: wrap;
 }
 
-.session-number {
-    font-weight: 700;
-    color: var(--primary-color);
-    font-size: 0.95rem;
-    background-color: var(--bg-white);
-    padding: 0.25rem 0.75rem;
-    border-radius: 6px;
+.session-summary-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
 }
 
-.session-badge {
-    display: inline-block;
+.session-number-badge {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    min-width: 38px;
+    text-align: center;
+}
+
+.session-type-badge {
+    padding: 0.3rem 0.7rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.session-type-badge.marathon-badge {
     background-color: var(--marathon-color);
     color: var(--bg-white);
-    padding: 0.375rem 0.875rem;
-    border-radius: 6px;
-    font-size: 0.875rem;
-    font-weight: 600;
 }
 
-.session-badge.tbd-badge {
+.session-type-badge.tbd-badge {
     background-color: #F39C12;
+    color: var(--bg-white);
 }
 
-.session-info {
+.session-summary-main {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+}
+
+.summary-date {
+    font-weight: 600;
+    color: var(--text-dark);
+    direction: ltr;
+}
+
+.summary-day {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.summary-time {
+    color: var(--text-medium);
+    direction: ltr;
+}
+
+.accordion-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    border-radius: 50%;
+}
+
+.accordion-toggle i {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.accordion-toggle:hover {
+    background-color: rgba(192, 0, 0, 0.1);
+}
+
+.session-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.session-accordion.active .session-accordion-content {
+    max-height: 500px;
+}
+
+.session-details {
+    padding: var(--spacing-md);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-sm);
 }
 
-.session-detail {
+.detail-row {
     display: flex;
     align-items: flex-start;
     gap: var(--spacing-sm);
+    padding: var(--spacing-xs) 0;
 }
 
-.session-detail i {
+.detail-row i {
     color: var(--primary-color);
-    font-size: 1.1rem;
-    margin-top: 2px;
-    min-width: 20px;
-}
-
-.session-detail-content {
-    flex: 1;
-}
-
-.session-time {
-    font-weight: 600;
-    color: var(--text-dark);
-    font-size: 1.05rem;
-}
-
-.session-time .day {
-    margin-left: var(--spacing-xs);
-}
-
-.session-time .time {
-    direction: ltr;
-    display: inline-block;
-}
-
-.session-date {
-    font-weight: 600;
-    color: var(--text-dark);
     font-size: 1rem;
-    direction: ltr;
-    display: inline-block;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+    width: 20px;
 }
 
-.session-location {
+.detail-row span {
     color: var(--text-medium);
     font-size: 0.95rem;
-    direction: rtl;
+    line-height: 1.5;
 }
 
 .session-location-link {
@@ -671,27 +755,29 @@ body {
     font-size: 0.85rem;
 }
 
-.zoom-info-inline {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-sm);
-    margin-top: 0.5rem;
-    font-size: 0.85rem;
-    color: var(--text-light);
-    direction: ltr;
-}
-
-.zoom-info-inline span {
+.detail-row.zoom-credentials {
     background-color: var(--bg-lighter);
-    padding: 0.25rem 0.625rem;
-    border-radius: 4px;
-    font-family: monospace;
+    padding: var(--spacing-sm);
+    border-radius: 6px;
+    margin-top: var(--spacing-xs);
 }
 
-.session-desc {
+.zoom-info-compact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.85rem;
     color: var(--text-medium);
-    font-size: 0.95rem;
-    line-height: 1.6;
+    direction: ltr;
+    text-align: left;
+}
+
+.zoom-info-compact span {
+    font-family: monospace;
+    background-color: var(--bg-white);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
 }
 
 /* ===========================

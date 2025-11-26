@@ -115,7 +115,7 @@ function openCourseModal(course) {
     const modal = document.getElementById('sessionModal');
     const modalBody = document.getElementById('modalBody');
     
-    // Build session list HTML
+    // Build session list HTML with accordion
     let sessionsHTML = course.sessions.map((session, index) => {
         const sessionNumber = index + 1;
         const isTBD = session.isTBD || session.date === 'TBD';
@@ -123,53 +123,51 @@ function openCourseModal(course) {
         const locationIcon = isZoom ? 'fa-video' : 'fa-map-marker-alt';
         
         return `
-        <div class="session-item ${session.isMarathon ? 'marathon' : ''} ${isTBD ? 'tbd' : ''}">
-            <div class="session-header-row">
-                ${!isTBD ? `<div class="session-number">جلسة ${sessionNumber}</div>` : ''}
-                ${session.isMarathon ? '<div class="session-badge">جلسة ماراثون</div>' : ''}
-                ${isTBD ? '<div class="session-badge tbd-badge">سيُحدد لاحقاً</div>' : ''}
+        <div class="session-accordion ${session.isMarathon ? 'marathon' : ''} ${isTBD ? 'tbd' : ''}" data-session-index="${index}">
+            <div class="session-accordion-header" onclick="toggleAccordion(${index})">
+                <div class="session-summary">
+                    <div class="session-summary-left">
+                        ${!isTBD ? `<span class="session-number-badge">#${sessionNumber}</span>` : ''}
+                        ${session.isMarathon ? '<span class="session-type-badge marathon-badge">ماراثون</span>' : ''}
+                        ${isTBD ? '<span class="session-type-badge tbd-badge">سيُحدد لاحقاً</span>' : ''}
+                    </div>
+                    <div class="session-summary-main">
+                        ${session.date && session.date !== 'TBD' ? `<span class="summary-date">${session.date}</span>` : ''}
+                        <span class="summary-day">${session.day}</span>
+                        ${!isTBD ? `<span class="summary-time">${session.time}</span>` : ''}
+                    </div>
+                </div>
+                <button class="accordion-toggle" aria-label="توسيع/طي">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
             </div>
-            <div class="session-info">
-                ${session.date && session.date !== 'TBD' ? `
-                <div class="session-detail">
-                    <i class="fas fa-calendar-alt"></i>
-                    <div class="session-detail-content">
-                        <div class="session-date">${session.date}</div>
-                    </div>
-                </div>
-                ` : ''}
-                <div class="session-detail">
-                    <i class="fas fa-calendar-day"></i>
-                    <div class="session-detail-content">
-                        <div class="session-time">
-                            <span class="day">${session.day}</span>
-                            ${!isTBD ? `<span class="time">${session.time}</span>` : ''}
-                        </div>
-                    </div>
-                </div>
-                ${!isTBD ? `
-                <div class="session-detail">
-                    <i class="fas ${locationIcon}"></i>
-                    <div class="session-detail-content">
+            <div class="session-accordion-content" id="session-content-${index}">
+                <div class="session-details">
+                    ${!isTBD ? `
+                    <div class="detail-row">
+                        <i class="fas ${locationIcon}"></i>
                         ${isZoom && course.zoomLink ? `
                             <a href="${course.zoomLink}" target="_blank" class="session-location-link" title="انقر للانضمام عبر Zoom">
                                 ${session.location}
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
-                            <div class="zoom-info-inline">
-                                <span>Meeting ID: ${course.zoomMeetingId || 'N/A'}</span>
-                                <span>Passcode: ${course.zoomPasscode || 'N/A'}</span>
-                            </div>
                         ` : `
-                            <div class="session-location">${session.location}</div>
+                            <span>${session.location}</span>
                         `}
                     </div>
-                </div>
-                ` : ''}
-                <div class="session-detail">
-                    <i class="fas fa-info-circle"></i>
-                    <div class="session-detail-content">
-                        <div class="session-desc">${session.description}</div>
+                    ` : ''}
+                    ${isZoom && course.zoomLink && !isTBD ? `
+                    <div class="detail-row zoom-credentials">
+                        <i class="fas fa-key"></i>
+                        <div class="zoom-info-compact">
+                            <span>Meeting ID: ${course.zoomMeetingId || 'N/A'}</span>
+                            <span>Passcode: ${course.zoomPasscode || 'N/A'}</span>
+                        </div>
+                    </div>
+                    ` : ''}
+                    <div class="detail-row">
+                        <i class="fas fa-info-circle"></i>
+                        <span>${session.description}</span>
                     </div>
                 </div>
             </div>
@@ -404,6 +402,24 @@ function setActiveNavLink() {
 
 window.addEventListener('scroll', setActiveNavLink);
 window.addEventListener('load', setActiveNavLink);
+
+// ===========================
+// Toggle Accordion for Session Details
+// ===========================
+
+function toggleAccordion(index) {
+    const content = document.getElementById(`session-content-${index}`);
+    const accordion = content.closest('.session-accordion');
+    const toggleBtn = accordion.querySelector('.accordion-toggle i');
+    
+    if (accordion.classList.contains('active')) {
+        accordion.classList.remove('active');
+        toggleBtn.style.transform = 'rotate(0deg)';
+    } else {
+        accordion.classList.add('active');
+        toggleBtn.style.transform = 'rotate(180deg)';
+    }
+}
 
 // ===========================
 // Update Copyright Year
