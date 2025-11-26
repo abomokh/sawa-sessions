@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="جلسات التمكين لطلاب السنة الأولى العرب في جامعة تل أبيب">
+    <title>SAWA - جلسات تمكين الطلاب</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="#home" class="logo-link" title="לוגו אוניברסיטת תל אביב, קישור, חזור לדף הבית" rel="home" aria-label="לוגו אוניברסיטת תל אביב">
+                    <div class="logo-container">
+                        <div class="tau-logo">
+                            <img alt="לוגו אוניברסיטת תל אביב" height="72" width="216" id="site-logo" src="Decanat_Success_Logo_Pos_3.png" title="">
+                        </div>
+                        <div class="logo-text">
+                            <h1 class="department-name">המדור לקידום סטודנטים וסטודנטיות</h1>
+                            <div class="deanery-name">הדקאנט להצלחת הסטודנטים והסטודנטיות</div>
+                            <div class="university-name">אוניברסיטת תל אביב - הפקולטה למדעים מדויקים</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">الرئيسية</a></li>
+                <li><a href="#sessions" class="nav-link">الجلسات</a></li>
+                <li><a href="#contact" class="nav-link">معلومات مفيدة</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="قائمة التنقل">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">أهلاً بكم في "سَوَا"</h1>
+                <p class="hero-subtitle">جلسات تمكين (תגבורים) للطلاب العرب</p>
+                <div class="hero-badge">كلية العلوم الدقيقة</div>
+                <p class="hero-description">
+                    برنامج "سَوَا" مُعَدّ لمساعدة الطلبة والطالبات من أبناء المجتمع العربيّ الذين يدرسون في جامعة تل أبيب.
+                    يركّز البرنامج على توفير الدعم الدراسيّ والشخصيّ والعاطفيّ للطلبة خلال دراستهم، بهدف مساعدتهم على النجاح في دراستهم الأكاديميّة.
+                </p>
+                <a href="#sessions" class="btn btn-primary">
+                    <i class="fas fa-calendar-alt"></i>
+                    عرض الجلسات
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Sessions Section -->
+    <section id="sessions" class="sessions">
+        <div class="container">
+            <h2 class="section-title">جلسات التمكين</h2>
+            <p class="section-subtitle">جميع الجلسات مجانية ومفتوحة لطلاب السنة الأولى المسجلين في كلية العلوم الدقيقة</p>
+            <div class="section-notice">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>تنويه:</strong> الجلسات المعروضة أدناه هي لمساقات كلية العلوم الدقيقة فقط
+            </div>
+
+            <!-- Course Grid - Dynamically populated -->
+            <div id="courseGrid" class="course-grid"></div>
+        </div>
+    </section>
+
+    <!-- Modal for Session Details -->
+    <div id="sessionModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="إغلاق">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Modal for WhatsApp Warning -->
+    <div id="whatsappModal" class="modal">
+        <div class="modal-content modal-warning">
+            <button class="modal-close" id="whatsappModalClose" aria-label="إغلاق">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="warning-content">
+                <div class="warning-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h2 class="warning-title">
+                    <span class="title-line1">مجموعة واتساب</span>
+                    <span class="title-line2">بيت العلوم الدقيقة 25/26</span>
+                </h2>
+                <div class="warning-text">
+                    <div class="warning-section arabic">
+                        <p><strong>⚠️ تنويه هام:</strong></p>
+                        <p>المجموعة مخصصة للطلاب العرب في السنة الأولى في كلية العلوم الدقيقة فقط</p>
+                    </div>
+                    <div class="warning-divider"></div>
+                    <div class="warning-section hebrew">
+                        <p><strong>⚠️ הודעה חשובה:</strong></p>
+                        <p>הקבוצה מיועדת לסטודנטים ערבים בשנה הראשונה בפקולטה למדעים מדויקים בלבד</p>
+                    </div>
+                </div>
+                <a href="https://chat.whatsapp.com/EX6aM2HDrwk6abhmAtLLov" target="_blank" class="btn btn-whatsapp-large">
+                    <i class="fab fa-whatsapp"></i>
+                    انضم للمجموعة
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Useful Information Section -->
+    <section id="contact" class="useful-info">
+        <div class="container">
+            <h2 class="section-title">معلومات مفيدة وجهات اتصال</h2>
+            <p class="section-subtitle">خدمات ودعم هام متاح للطلاب</p>
+
+            <!-- Contact Grid - Dynamically populated -->
+            <div id="contactGrid" class="info-grid"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SAWA</h4>
+                    <p>تمكين طلاب السنة الأولى العرب في كلية العلوم الدقيقة</p>
+                    <p class="footer-location">📍 مساكن آينشتاين للطلبة، البناية B3</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/tau.sawa/" target="_blank" aria-label="Instagram" title="تابعنا على إنستغرام">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <button id="whatsappBtn" class="social-link-btn" aria-label="WhatsApp" title="انضم لمجموعة الواتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#sessions">الجلسات</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>تواصل معنا</h4>
+                    <p><strong>رامي طيبي</strong> - عامل اجتماعي</p>
+                    <p>📧 ramiti@tauex.tau.ac.il</p>
+                    <p>📧 sawa@tauex.tau.ac.il</p>
+                    <p>📞 03-640-7758</p>
+                    <p>📞 03-640-8832</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SAWA - جامعة تل أبيب. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
