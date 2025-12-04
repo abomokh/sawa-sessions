@@ -8,6 +8,7 @@
       "name": "בדידה 1",
       "code": "Discrete Mathematics 1",
       "instructor": "עומר קשת",
+      "addedDate": "2025-11-01",
       "mainSession": {
         "day": "اللإثنين",
         "time": "18:00 - 19:30",
@@ -110,6 +111,7 @@
       "name": "חדוא 1 ב",
       "code": "Calculus 1B",
       "instructor": "אדם מורב",
+      "addedDate": "2025-11-01",
       "mainSession": {
         "day": "اللإثنين",
         "time": "14:30 - 16:00",
@@ -212,6 +214,7 @@
       "name": "חדו\"א 1א",
       "code": "Calculus 1A",
       "instructor": "אדם מורב",
+      "addedDate": "2025-11-01",
       "mainSession": {
         "day": "الأربعاء",
         "time": "12:00 - 14:00",
@@ -298,6 +301,7 @@
       "name": "כימיה כללית 2",
       "code": "General Chemistry 2",
       "instructor": "דור גולדשטיין",
+      "addedDate": "2025-11-01",
       "mainSession": {
         "day": "الأحد",
         "time": "18:00 - 20:00",
@@ -309,8 +313,9 @@
           "day": "الأحد",
           "time": "18:00 - 20:00",
           "location": "אורנשטיין 103",
-          "description": "جلسة تمكين أسبوعية",
-          "isMarathon": false
+          "description": "تم إلغاء هذه الجلسة",
+          "isMarathon": false,
+          "isCancelled": true
         },
         {
           "date": "7.12",
@@ -376,6 +381,7 @@
       "name": "אלגברה לינארית 1א",
       "code": "Linear Algebra 1A",
       "instructor": "תאמר עבד אלרזאק",
+      "addedDate": "2025-11-01",
       "mainSession": {
         "day": "الأحد",
         "time": "18:00 - 20:00",
@@ -473,6 +479,7 @@
       "name": "אלגברה לינארית 1ב",
       "code": "Linear Algebra 1B",
       "instructor": "תאמר עבד אלרזאק",
+      "addedDate": "2025-11-01",
       "mainSession": {
         "day": "الخميس",
         "time": "18:30 - 20:30",
@@ -540,6 +547,86 @@
           "date": "15.1",
           "day": "الخميس",
           "time": "18:30 - 20:30",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "TBD",
+          "day": "سيُحدد لاحقاً",
+          "time": "سيُحدد لاحقاً",
+          "location": "سيُحدد لاحقاً",
+          "description": "ماراثون استعداداً للامتحان",
+          "isMarathon": true,
+          "isTBD": true
+        }
+      ]
+    },
+    {
+      "id": "linear-algebra-1c",
+      "name": "אלגברה לינארית 1ג",
+      "code": "Linear Algebra 1C",
+      "instructor": "תאמר עבד אלרזאק",
+      "addedDate": "2025-12-03",
+      "mainSession": {
+        "day": "الجمعة",
+        "time": "09:00 - 11:00",
+        "location": "زووم (Zoom)"
+      },
+      "zoomLink": "https://us06web.zoom.us/j/81907942005?pwd=3oZW8f9HCZfnUQ40M9EZ7VGPzRSJjW.1",
+      "zoomMeetingId": "819 0794 2005",
+      "zoomPasscode": "485158",
+      "sessions": [
+        {
+          "date": "5.12",
+          "day": "الجمعة",
+          "time": "09:00 - 11:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "12.12",
+          "day": "الجمعة",
+          "time": "09:00 - 11:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "19.12",
+          "day": "الجمعة",
+          "time": "09:00 - 11:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "9.1",
+          "day": "الجمعة",
+          "time": "09:00 - 11:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "16.1",
+          "day": "الجمعة",
+          "time": "09:00 - 11:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "23.1",
+          "day": "الجمعة",
+          "time": "09:00 - 11:00",
           "location": "زووم (Zoom)",
           "description": "جلسة تمكين أسبوعية",
           "isMarathon": false,

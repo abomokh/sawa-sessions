@@ -54,6 +54,21 @@ function hideContactsSection() {
 }
 
 // ===========================
+// Check if course is new (added within last 7 days)
+// ===========================
+
+function isNewCourse(addedDate) {
+    if (!addedDate) return false;
+    
+    const added = new Date(addedDate);
+    const today = new Date();
+    const diffTime = today - added;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    return diffDays <= 7;
+}
+
+// ===========================
 // Render Course Cards (Grid View)
 // ===========================
 
@@ -66,12 +81,22 @@ function renderCourseCards() {
         card.className = 'course-card';
         card.setAttribute('data-course-id', course.id);
         
+        // Check if course is new
+        const isNew = isNewCourse(course.addedDate);
+        if (isNew) {
+            card.classList.add('new-course');
+        }
+        
         // Check if it's a Zoom session
         const locationIcon = course.mainSession.location.includes('Zoom') || course.mainSession.location.includes('זום') || course.mainSession.location.includes('زووم') 
             ? 'fa-video' 
             : 'fa-map-marker-alt';
         
+        // Count active sessions (excluding cancelled)
+        const activeSessions = course.sessions.filter(s => !s.isCancelled).length;
+        
         card.innerHTML = `
+            ${isNew ? '<div class="new-badge"><i class="fas fa-sparkles"></i> جديد</div>' : ''}
             <div class="course-header">
                 <h3 class="course-name">${course.name}</h3>
                 <span class="course-code">${course.code}</span>
@@ -98,7 +123,7 @@ function renderCourseCards() {
             </div>
             <div class="course-cta">
                 <i class="fas fa-info-circle"></i>
-                عرض جميع الجلسات (${course.sessions.length})
+                عرض جميع الجلسات (${activeSessions})
             </div>
         `;
         
@@ -116,18 +141,26 @@ function openCourseModal(course) {
     const modalBody = document.getElementById('modalBody');
     
     // Build session list HTML with accordion
+    let activeSessionNumber = 0; // Counter for active (non-cancelled) sessions
     let sessionsHTML = course.sessions.map((session, index) => {
-        const sessionNumber = index + 1;
         const isTBD = session.isTBD || session.date === 'TBD';
+        const isCancelled = session.isCancelled || false;
         const isZoom = session.isZoom || session.location.includes('Zoom') || session.location.includes('זום') || session.location.includes('زووم');
         const locationIcon = isZoom ? 'fa-video' : 'fa-map-marker-alt';
         
+        // Only increment number for non-cancelled sessions
+        if (!isCancelled) {
+            activeSessionNumber++;
+        }
+        const displayNumber = activeSessionNumber;
+        
         return `
-        <div class="session-accordion ${session.isMarathon ? 'marathon' : ''} ${isTBD ? 'tbd' : ''}" data-session-index="${index}">
+        <div class="session-accordion ${session.isMarathon ? 'marathon' : ''} ${isTBD ? 'tbd' : ''} ${isCancelled ? 'cancelled' : ''}" data-session-index="${index}">
             <div class="session-accordion-header" onclick="toggleAccordion(${index})">
-                <div class="session-number-badge">#${sessionNumber}</div>
+                <div class="session-number-badge ${isCancelled ? 'cancelled-badge' : ''}">${isCancelled ? '<i class="fas fa-times"></i>' : '#' + displayNumber}</div>
                 <div class="session-summary-content">
                     <div class="session-summary-line">
+                        ${isCancelled ? '<span class="session-type-badge cancelled-badge"><i class="fas fa-ban"></i> جلسة ملغاة</span>' : ''}
                         ${session.isMarathon ? '<span class="session-type-badge marathon-badge"><i class="fas fa-bolt"></i> جلسة ماراثون</span>' : ''}
                         ${isTBD ? '<span class="session-type-badge tbd-badge"><i class="fas fa-clock"></i> سيُحدد لاحقاً</span>' : ''}
                     </div>

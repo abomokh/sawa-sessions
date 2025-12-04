@@ -323,12 +323,63 @@ body {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
+    position: relative;
+    overflow: hidden;
 }
 
 .course-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
     border-color: var(--primary-color);
+}
+
+/* NEW Course Badge */
+.course-card.new-course {
+    border-color: var(--success-color);
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.2);
+}
+
+.course-card.new-course::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--success-color) 0%, #2ECC71 100%);
+}
+
+.new-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: linear-gradient(135deg, var(--success-color) 0%, #2ECC71 100%);
+    color: var(--bg-white);
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
+    animation: pulse-badge 2s infinite;
+    z-index: 10;
+}
+
+.new-badge i {
+    font-size: 0.75rem;
+}
+
+@keyframes pulse-badge {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(39, 174, 96, 0.5);
+    }
 }
 
 .course-header {
@@ -583,6 +634,31 @@ body {
     background-color: #FFF9E6;
     border: 2px dashed var(--text-light);
     opacity: 0.9;
+}
+
+.session-accordion.cancelled {
+    background-color: #F5F5F5;
+    border: 2px solid #999;
+    opacity: 0.7;
+    position: relative;
+}
+
+.session-accordion.cancelled .session-summary-info {
+    text-decoration: line-through;
+    color: var(--text-light);
+}
+
+.session-accordion.cancelled .session-number-badge {
+    background-color: #999;
+}
+
+.session-accordion.cancelled .session-number-badge.cancelled-badge {
+    background-color: #DC3545;
+}
+
+.session-type-badge.cancelled-badge {
+    background-color: #DC3545;
+    color: var(--bg-white);
 }
 
 .session-accordion-header {
@@ -1208,6 +1284,13 @@ body {
     
     .course-instructor {
         font-size: 0.85rem;
+    }
+    
+    .new-badge {
+        top: 10px;
+        left: 10px;
+        padding: 0.3rem 0.7rem;
+        font-size: 0.75rem;
     }
     
     .session-location-link {
