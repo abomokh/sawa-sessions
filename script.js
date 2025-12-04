@@ -76,7 +76,14 @@ function renderCourseCards() {
     const courseGrid = document.getElementById('courseGrid');
     courseGrid.innerHTML = '';
     
-    coursesData.forEach(course => {
+    // Sort courses by addedDate (newest first)
+    const sortedCourses = [...coursesData].sort((a, b) => {
+        const dateA = a.addedDate ? new Date(a.addedDate) : new Date(0);
+        const dateB = b.addedDate ? new Date(b.addedDate) : new Date(0);
+        return dateB - dateA; // Descending order (newest first)
+    });
+    
+    sortedCourses.forEach(course => {
         const card = document.createElement('div');
         card.className = 'course-card';
         card.setAttribute('data-course-id', course.id);
