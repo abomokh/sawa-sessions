@@ -154,9 +154,13 @@
           "date": "15.12",
           "day": "اللإثنين",
           "time": "14:30 - 16:00",
-          "location": "דן דוד 204",
-          "description": "جلسة تمكين أسبوعية",
-          "isMarathon": false
+          "location": "زووم (Zoom) - لمرة واحدة",
+          "description": "جلسة عبر الزووم لمرة واحدة. المكان الجديد للجلسات القادمة سيُرسل لاحقاً",
+          "isMarathon": false,
+          "isZoom": true,
+          "zoomLink": "https://us06web.zoom.us/j/81098947487?pwd=LELFmXMVmqCJO2Q8oM5KubeLbaNtfe.1",
+          "zoomMeetingId": "810 9894 7487",
+          "zoomPasscode": "340354"
         },
         {
           "date": "22.12",

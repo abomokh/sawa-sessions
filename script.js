@@ -199,8 +199,8 @@ function openCourseModal(course) {
                     ${!isTBD ? `
                     <div class="detail-row">
                         <i class="fas ${locationIcon}"></i>
-                        ${isZoom && course.zoomLink ? `
-                            <a href="${course.zoomLink}" target="_blank" class="session-location-link" title="انقر للانضمام عبر Zoom">
+                        ${isZoom && (session.zoomLink || course.zoomLink) ? `
+                            <a href="${session.zoomLink || course.zoomLink}" target="_blank" class="session-location-link" title="انقر للانضمام عبر Zoom">
                                 ${session.location}
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
@@ -209,12 +209,12 @@ function openCourseModal(course) {
                         `}
                     </div>
                     ` : ''}
-                    ${isZoom && course.zoomLink && !isTBD ? `
+                    ${isZoom && (session.zoomLink || course.zoomLink) && !isTBD ? `
                     <div class="detail-row zoom-credentials">
                         <i class="fas fa-key"></i>
                         <div class="zoom-info-compact">
-                            <span>Meeting ID: ${course.zoomMeetingId || 'N/A'}</span>
-                            <span>Passcode: ${course.zoomPasscode || 'N/A'}</span>
+                            <span>Meeting ID: ${session.zoomMeetingId || course.zoomMeetingId || 'N/A'}</span>
+                            <span>Passcode: ${session.zoomPasscode || course.zoomPasscode || 'N/A'}</span>
                         </div>
                     </div>
                     ` : ''}
