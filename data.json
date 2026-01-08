@@ -19,13 +19,10 @@
           "date": "9.1",
           "day": "الجمعة",
           "time": "08:30 - 10:30",
-          "location": "زووم (Zoom) - لمرة واحدة",
-          "description": "جلسة عبر الزووم لمرة واحدة",
+          "location": "زووم (Zoom)",
+          "description": "تم إلغاء هذه الجلسة",
           "isMarathon": false,
-          "isZoom": true,
-          "zoomLink": "https://us06web.zoom.us/j/87251595756?pwd=8skfLZxTii0bFF82mYrbSRww9LZQwh.1",
-          "zoomMeetingId": "872 5159 5756",
-          "zoomPasscode": "704103"
+          "isCancelled": true
         },
         {
           "date": "12.1",
