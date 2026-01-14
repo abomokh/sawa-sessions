@@ -94,6 +94,12 @@ function renderCourseCards() {
             card.classList.add('new-course');
         }
         
+        // Check if course is cancelled
+        const isCancelled = course.isCancelled || false;
+        if (isCancelled) {
+            card.classList.add('cancelled-course');
+        }
+        
         // Check if it's a Zoom session
         const locationIcon = course.mainSession.location.includes('Zoom') || course.mainSession.location.includes('זום') || course.mainSession.location.includes('زووم') 
             ? 'fa-video' 
@@ -103,7 +109,8 @@ function renderCourseCards() {
         const activeSessions = course.sessions.filter(s => !s.isCancelled).length;
         
         card.innerHTML = `
-            ${isNew ? '<div class="new-badge"><i class="fas fa-sparkles"></i> جديد</div>' : ''}
+            ${isCancelled ? '<div class="cancelled-badge"><i class="fas fa-ban"></i> ملغي</div>' : ''}
+            ${isNew && !isCancelled ? '<div class="new-badge"><i class="fas fa-sparkles"></i> جديد</div>' : ''}
             <div class="course-header">
                 <h3 class="course-name">${course.name}</h3>
                 <span class="course-code">${course.code}</span>
@@ -128,13 +135,17 @@ function renderCourseCards() {
                     <span class="summary-location">${course.mainSession.location}</span>
                 </div>
             </div>
+            ${!isCancelled ? `
             <div class="course-cta">
                 <i class="fas fa-info-circle"></i>
                 عرض جميع الجلسات (${activeSessions})
             </div>
+            ` : ''}
         `;
         
-        card.addEventListener('click', () => openCourseModal(course));
+        if (!isCancelled) {
+            card.addEventListener('click', () => openCourseModal(course));
+        }
         courseGrid.appendChild(card);
     });
 }

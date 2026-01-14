@@ -371,6 +371,50 @@ body {
     font-size: 0.75rem;
 }
 
+/* CANCELLED Course Badge */
+.course-card.cancelled-course {
+    border-color: #e74c3c;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.2);
+    opacity: 0.75;
+    cursor: not-allowed;
+}
+
+.course-card.cancelled-course:hover {
+    transform: none;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.2);
+}
+
+.course-card.cancelled-course::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.cancelled-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: var(--bg-white);
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+    z-index: 10;
+}
+
+.cancelled-badge i {
+    font-size: 0.75rem;
+}
+
 @keyframes pulse-badge {
     0%, 100% {
         transform: scale(1);

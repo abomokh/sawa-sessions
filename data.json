@@ -367,6 +367,7 @@
       "code": "General Chemistry 2",
       "instructor": "דור גולדשטיין",
       "addedDate": "2025-11-01",
+      "isCancelled": true,
       "mainSession": {
         "day": "الأحد",
         "time": "18:00 - 20:00",
