@@ -31,6 +31,7 @@
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">الرئيسية</a></li>
+                <li><a href="#upcoming" class="nav-link">القادمة</a></li>
                 <li><a href="#sessions" class="nav-link">الجلسات</a></li>
                 <li><a href="#contact" class="nav-link">معلومات مفيدة</a></li>
             </ul>
@@ -46,6 +47,11 @@
     <header id="home" class="hero">
         <div class="container">
             <div class="hero-content">
+                <div id="updateLabel" class="update-label" style="display: none;" role="status" aria-live="polite">
+                    <i class="fas fa-bullhorn" aria-hidden="true"></i>
+                    <span class="update-label-text"></span>
+                    <span class="update-label-shine" aria-hidden="true"></span>
+                </div>
                 <h1 class="hero-title">أهلاً بكم في "سَوَا"</h1>
                 <p class="hero-subtitle">جلسات تمكين (תגבורים) للطلاب العرب</p>
                 <div class="hero-badge">كلية العلوم الدقيقة</div>
@@ -62,15 +68,22 @@
     </header>
 
 
+    <!-- Upcoming Sessions Quick View -->
+    <section id="upcoming" class="upcoming-section" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-bell" aria-hidden="true"></i>
+                الجلسات القادمة
+            </h2>
+            <ul id="upcomingList" class="upcoming-list"></ul>
+        </div>
+    </section>
+
     <!-- Sessions Section -->
     <section id="sessions" class="sessions">
         <div class="container">
             <h2 class="section-title">جلسات التمكين</h2>
             <p class="section-subtitle">جميع الجلسات مجانية ومفتوحة لطلاب السنة الأولى المسجلين في كلية العلوم الدقيقة</p>
-            <div class="section-notice">
-                <i class="fas fa-exclamation-triangle"></i>
-                <strong>تنويه:</strong> الجلسات المعروضة أدناه هي لمساقات كلية العلوم الدقيقة فقط
-            </div>
 
             <!-- Course Grid - Dynamically populated -->
             <div id="courseGrid" class="course-grid"></div>

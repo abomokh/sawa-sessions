@@ -15,6 +15,8 @@ async function loadData() {
         contactsData = data.contacts;
         settings = data.settings || {};
         
+        renderUpdateLabel();
+        renderUpcomingSessions();
         renderCourseCards();
         
         // Show/hide contacts section based on settings
@@ -50,6 +52,209 @@ function hideContactsSection() {
         if (link.getAttribute('href') === '#contact') {
             link.parentElement.style.display = 'none';
         }
+    });
+}
+
+// ===========================
+// Update Label (Hero badge controlled via settings.updateLabel)
+// Allowed values: "semester-b", "semester-a", "hidden" (or omit/null)
+// ===========================
+
+const UPDATE_LABEL_TEXTS = {
+    'semester-b': 'مُحدَّث لفصل ب!',
+    'semester-a': 'مُحدَّث لفصل أ!'
+};
+
+function renderUpdateLabel() {
+    const labelEl = document.getElementById('updateLabel');
+    if (!labelEl) return;
+    
+    const textEl = labelEl.querySelector('.update-label-text');
+    const value = settings.updateLabel;
+    const text = value && UPDATE_LABEL_TEXTS[value];
+    
+    if (text && textEl) {
+        textEl.textContent = text;
+        labelEl.style.display = '';
+    } else {
+        labelEl.style.display = 'none';
+    }
+}
+
+// ===========================
+// Session date/time helpers (for past / upcoming badges)
+// ===========================
+
+// Parse "DD.MM" into a Date. Picks the year (prev/current/next) that places
+// the date closest to today, so semesters crossing a year boundary still work.
+function parseSessionDate(dateStr) {
+    if (!dateStr || dateStr === 'TBD') return null;
+    const parts = String(dateStr).split('.');
+    if (parts.length !== 2) return null;
+    const day = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10);
+    if (!Number.isFinite(day) || !Number.isFinite(month)) return null;
+    if (month < 1 || month > 12 || day < 1 || day > 31) return null;
+
+    const today = new Date();
+    const currentYear = today.getFullYear();
+
+    let best = null;
+    let bestDistance = Infinity;
+    for (const year of [currentYear - 1, currentYear, currentYear + 1]) {
+        const candidate = new Date(year, month - 1, day);
+        const distance = Math.abs(candidate - today);
+        if (distance < bestDistance) {
+            bestDistance = distance;
+            best = candidate;
+        }
+    }
+    return best;
+}
+
+// Returns a Date representing the moment the session ends (date + end time).
+// Falls back to end-of-day if the time string can't be parsed.
+function getSessionEndDateTime(session) {
+    const date = parseSessionDate(session && session.date);
+    if (!date) return null;
+
+    const timeMatch = session.time && String(session.time)
+        .match(/(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})/);
+    if (timeMatch) {
+        date.setHours(parseInt(timeMatch[3], 10), parseInt(timeMatch[4], 10), 0, 0);
+    } else {
+        date.setHours(23, 59, 59, 999);
+    }
+    return date;
+}
+
+// For an ordered list of sessions, compute per-index { isPast, isUpcoming }.
+// - isPast: non-cancelled, non-TBD, end-datetime already passed.
+// - isUpcoming: the FIRST non-cancelled, non-TBD session whose end-datetime
+//   is in the future. Cancelled sessions are skipped per requirement.
+function computeSessionStatuses(sessions) {
+    const now = new Date();
+    let upcomingAssigned = false;
+
+    return sessions.map(session => {
+        const isCancelled = !!session.isCancelled;
+        const isTBD = session.isTBD || session.date === 'TBD';
+        const endDateTime = (!isCancelled && !isTBD) ? getSessionEndDateTime(session) : null;
+
+        let isPast = false;
+        let isUpcoming = false;
+
+        if (endDateTime) {
+            if (endDateTime < now) {
+                isPast = true;
+            } else if (!upcomingAssigned) {
+                isUpcoming = true;
+                upcomingAssigned = true;
+            }
+        }
+
+        return { isPast, isUpcoming };
+    });
+}
+
+// ===========================
+// Render Upcoming Sessions Quick-View
+// Shows a minimal card per course for its next upcoming (non-cancelled) session.
+// ===========================
+
+function escapeHTML(str) {
+    if (str == null) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function renderUpcomingSessions() {
+    const section = document.getElementById('upcoming');
+    const list = document.getElementById('upcomingList');
+    if (!section || !list) return;
+    
+    // Collect (course, upcomingSession) for every course that has one
+    const items = [];
+    coursesData.forEach(course => {
+        if (course.isCancelled) return;
+        const statuses = computeSessionStatuses(course.sessions);
+        const idx = statuses.findIndex(s => s.isUpcoming);
+        if (idx === -1) return;
+        items.push({ course, session: course.sessions[idx], endDateTime: getSessionEndDateTime(course.sessions[idx]) });
+    });
+    
+    // Hide the entire section + its nav link if nothing's upcoming
+    const navLink = document.querySelector('.nav-link[href="#upcoming"]');
+    if (items.length === 0) {
+        section.style.display = 'none';
+        if (navLink && navLink.parentElement) navLink.parentElement.style.display = 'none';
+        list.innerHTML = '';
+        return;
+    }
+    section.style.display = '';
+    if (navLink && navLink.parentElement) navLink.parentElement.style.display = '';
+    
+    // Sort chronologically (soonest first)
+    items.sort((a, b) => {
+        if (!a.endDateTime) return 1;
+        if (!b.endDateTime) return -1;
+        return a.endDateTime - b.endDateTime;
+    });
+    
+    list.innerHTML = items.map(({ course, session }) => {
+        const zoomLink = session.zoomLink || course.zoomLink;
+        const isZoom = !!(session.isZoom || (session.location && (
+            session.location.includes('Zoom') ||
+            session.location.includes('זום') ||
+            session.location.includes('زووم')
+        )));
+        
+        // Combined day · date · time line. Append a non-Zoom location only,
+        // since for Zoom sessions the "join" button below already conveys location.
+        const metaParts = [session.day, session.date, session.time].filter(Boolean);
+        let metaText = metaParts.join(' ');
+        if (!isZoom && session.location) {
+            metaText += ' · ' + session.location;
+        }
+        
+        return `
+            <li class="upcoming-item" data-course-id="${escapeHTML(course.id)}" role="button" tabindex="0" aria-label="${escapeHTML(course.name)} - عرض جميع الجلسات">
+                <div class="upcoming-item-body">
+                    <h3 class="upcoming-item-title">${escapeHTML(course.name)}</h3>
+                    <p class="upcoming-item-meta">${escapeHTML(metaText)}</p>
+                </div>
+                ${isZoom && zoomLink ? `
+                    <a class="upcoming-item-zoom" href="${escapeHTML(zoomLink)}" target="_blank" rel="noopener" aria-label="انضمام عبر Zoom إلى ${escapeHTML(course.name)}">
+                        <i class="fas fa-video" aria-hidden="true"></i>
+                        <span>Zoom</span>
+                    </a>
+                ` : ''}
+            </li>
+        `;
+    }).join('');
+    
+    // Wire up item clicks → open the course modal
+    list.querySelectorAll('.upcoming-item').forEach(itemEl => {
+        const courseId = itemEl.getAttribute('data-course-id');
+        const course = coursesData.find(c => c.id === courseId);
+        if (!course) return;
+        
+        const open = () => openCourseModal(course);
+        itemEl.addEventListener('click', e => {
+            if (e.target.closest('.upcoming-item-zoom')) return;
+            open();
+        });
+        itemEl.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                if (e.target.closest('.upcoming-item-zoom')) return;
+                e.preventDefault();
+                open();
+            }
+        });
     });
 }
 
@@ -158,6 +363,9 @@ function openCourseModal(course) {
     const modal = document.getElementById('sessionModal');
     const modalBody = document.getElementById('modalBody');
     
+    // Compute past / upcoming status for each session (in declared order)
+    const sessionStatuses = computeSessionStatuses(course.sessions);
+    
     // Build session list HTML with accordion
     let activeSessionNumber = 0; // Counter for active (non-cancelled) sessions
     let sessionsHTML = course.sessions.map((session, index) => {
@@ -165,6 +373,7 @@ function openCourseModal(course) {
         const isCancelled = session.isCancelled || false;
         const isZoom = session.isZoom || session.location.includes('Zoom') || session.location.includes('זום') || session.location.includes('زووم');
         const locationIcon = isZoom ? 'fa-video' : 'fa-map-marker-alt';
+        const { isPast, isUpcoming } = sessionStatuses[index];
         
         // Only increment number for non-cancelled sessions
         if (!isCancelled) {
@@ -173,12 +382,14 @@ function openCourseModal(course) {
         const displayNumber = activeSessionNumber;
         
         return `
-        <div class="session-accordion ${session.isMarathon ? 'marathon' : ''} ${isTBD ? 'tbd' : ''} ${isCancelled ? 'cancelled' : ''}" data-session-index="${index}">
+        <div class="session-accordion ${session.isMarathon ? 'marathon' : ''} ${isTBD ? 'tbd' : ''} ${isCancelled ? 'cancelled' : ''} ${isPast ? 'past' : ''} ${isUpcoming ? 'upcoming' : ''}" data-session-index="${index}">
             <div class="session-accordion-header" onclick="toggleAccordion(${index})">
                 <div class="session-number-badge ${isCancelled ? 'cancelled-badge' : ''}">${isCancelled ? '<i class="fas fa-times"></i>' : '#' + displayNumber}</div>
                 <div class="session-summary-content">
                     <div class="session-summary-line">
                         ${isCancelled ? '<span class="session-type-badge cancelled-badge"><i class="fas fa-ban"></i> جلسة ملغاة</span>' : ''}
+                        ${isUpcoming ? '<span class="session-type-badge upcoming-badge"><i class="fas fa-bell"></i> الجلسة القادمة</span>' : ''}
+                        ${isPast ? '<span class="session-type-badge past-badge"><i class="fas fa-check-circle"></i> منتهية</span>' : ''}
                         ${session.isMarathon ? '<span class="session-type-badge marathon-badge"><i class="fas fa-bolt"></i> جلسة ماراثون</span>' : ''}
                         ${isTBD ? '<span class="session-type-badge tbd-badge"><i class="fas fa-clock"></i> سيُحدد لاحقاً</span>' : ''}
                     </div>

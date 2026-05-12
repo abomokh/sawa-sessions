@@ -1,0 +1,779 @@
+{
+  "settings": {
+    "showContactsSection": false
+  },
+  "courses": [
+    {
+      "id": "intro-probability-stats",
+      "name": "מבוא להסתברות לסטטיסטיקאים",
+      "code": "Introduction to Probability for Statisticians",
+      "instructor": "סלע פריד",
+      "addedDate": "2026-01-05",
+      "mainSession": {
+        "day": "اللإثنين",
+        "time": "18:00 - 20:00",
+        "location": "אורנשטיין 110"
+      },
+      "sessions": [
+        {
+          "date": "9.1",
+          "day": "الجمعة",
+          "time": "08:30 - 10:30",
+          "location": "زووم (Zoom)",
+          "description": "تم إلغاء هذه الجلسة",
+          "isMarathon": false,
+          "isCancelled": true
+        },
+        {
+          "date": "12.1",
+          "day": "اللإثنين",
+          "time": "18:00 - 20:00",
+          "location": "אורנשטיין 110",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "19.1",
+          "day": "اللإثنين",
+          "time": "18:00 - 20:00",
+          "location": "אורנשטיין 110",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "26.1",
+          "day": "اللإثنين",
+          "time": "18:00 - 20:00",
+          "location": "אורנשטיין 110",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "TBD",
+          "day": "سيُحدد لاحقاً",
+          "time": "سيُحدد لاحقاً",
+          "location": "سيُحدد لاحقاً",
+          "description": "ماراثون استعداداً للامتحان",
+          "isMarathon": true,
+          "isTBD": true
+        }
+      ]
+    },
+    {
+      "id": "discrete-math-1",
+      "name": "בדידה 1",
+      "code": "Discrete Mathematics 1",
+      "instructor": "עומר קשת",
+      "addedDate": "2025-11-01",
+      "mainSession": {
+        "day": "اللإثنين",
+        "time": "18:00 - 19:30",
+        "location": "דן דוד 204"
+      },
+      "sessions": [
+        {
+          "date": "17.11",
+          "day": "اللإثنين",
+          "time": "18:00 - 19:30",
+          "location": "דן דוד 204",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "24.11",
+          "day": "اللإثنين",
+          "time": "18:00 - 19:30",
+          "location": "דן דוד 204",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "1.12",
+          "day": "اللإثنين",
+          "time": "18:00 - 19:30",
+          "location": "דן דוד 204",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "8.12",
+          "day": "اللإثنين",
+          "time": "18:00 - 19:30",
+          "location": "דן דוד 204",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "15.12",
+          "day": "اللإثنين",
+          "time": "18:00 - 19:30",
+          "location": "דן דוד 204",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "22.12",
+          "day": "اللإثنين",
+          "time": "18:00 - 19:30",
+          "location": "דן דוד 204",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "29.12",
+          "day": "اللإثنين",
+          "time": "18:00 - 19:30",
+          "location": "דן דוד 204",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "5.1",
+          "day": "اللإثنين",
+          "time": "18:00 - 19:30",
+          "location": "דן דוד 204",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "12.1",
+          "day": "اللإثنين",
+          "time": "18:00 - 19:30",
+          "location": "דן דוד 204",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "19.1",
+          "day": "اللإثنين",
+          "time": "18:00 - 19:30",
+          "location": "דן דוד 204",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "TBD",
+          "day": "سيُحدد لاحقاً",
+          "time": "سيُحدد لاحقاً",
+          "location": "سيُحدد لاحقاً",
+          "description": "ماراثون استعداداً للامتحان",
+          "isMarathon": true,
+          "isTBD": true
+        }
+      ]
+    },
+    {
+      "id": "calculus-1b",
+      "name": "חדוא 1 ב",
+      "code": "Calculus 1B",
+      "instructor": "אדם מורב",
+      "addedDate": "2025-11-01",
+      "mainSession": {
+        "day": "اللإثنين",
+        "time": "14:30 - 16:00",
+        "location": "דן דוד 204"
+      },
+      "sessions": [
+        {
+          "date": "17.11",
+          "day": "اللإثنين",
+          "time": "14:30 - 16:00",
+          "location": "דן דוד 204",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "24.11",
+          "day": "اللإثنين",
+          "time": "14:30 - 16:00",
+          "location": "דן דוד 204",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "1.12",
+          "day": "اللإثنين",
+          "time": "14:30 - 16:00",
+          "location": "דן דוד 204",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "8.12",
+          "day": "اللإثنين",
+          "time": "14:30 - 16:00",
+          "location": "דן דוד 204",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "15.12",
+          "day": "اللإثنين",
+          "time": "14:30 - 16:00",
+          "location": "زووم (Zoom) - لمرة واحدة",
+          "description": "جلسة عبر الزووم لمرة واحدة. المكان الجديد للجلسات القادمة سيُرسل لاحقاً",
+          "isMarathon": false,
+          "isZoom": true,
+          "zoomLink": "https://us06web.zoom.us/j/81098947487?pwd=LELFmXMVmqCJO2Q8oM5KubeLbaNtfe.1",
+          "zoomMeetingId": "810 9894 7487",
+          "zoomPasscode": "340354"
+        },
+        {
+          "date": "22.12",
+          "day": "اللإثنين",
+          "time": "14:30 - 16:00",
+          "location": "سيُحدد لاحقاً",
+          "description": "المكان سيُرسل لاحقاً",
+          "isMarathon": false,
+          "isLocationTBD": true
+        },
+        {
+          "date": "29.12",
+          "day": "اللإثنين",
+          "time": "14:30 - 16:00",
+          "location": "سيُحدد لاحقاً",
+          "description": "المكان سيُرسل لاحقاً",
+          "isMarathon": false,
+          "isLocationTBD": true
+        },
+        {
+          "date": "5.1",
+          "day": "اللإثنين",
+          "time": "14:30 - 16:00",
+          "location": "سيُحدد لاحقاً",
+          "description": "المكان سيُرسل لاحقاً",
+          "isMarathon": false,
+          "isLocationTBD": true
+        },
+        {
+          "date": "12.1",
+          "day": "اللإثنين",
+          "time": "14:30 - 16:00",
+          "location": "سيُحدد لاحقاً",
+          "description": "المكان سيُرسل لاحقاً",
+          "isMarathon": false,
+          "isLocationTBD": true
+        },
+        {
+          "date": "19.1",
+          "day": "اللإثنين",
+          "time": "14:30 - 16:00",
+          "location": "سيُحدد لاحقاً",
+          "description": "المكان سيُرسل لاحقاً",
+          "isMarathon": false,
+          "isLocationTBD": true
+        },
+        {
+          "date": "TBD",
+          "day": "سيُحدد لاحقاً",
+          "time": "سيُحدد لاحقاً",
+          "location": "سيُحدد لاحقاً",
+          "description": "ماراثون استعداداً للامتحان",
+          "isMarathon": true,
+          "isTBD": true
+        }
+      ]
+    },
+    {
+      "id": "calculus-1a",
+      "name": "חדו\"א 1א",
+      "code": "Calculus 1A",
+      "instructor": "אדם מורב",
+      "addedDate": "2025-11-01",
+      "mainSession": {
+        "day": "الأربعاء",
+        "time": "12:00 - 14:00",
+        "location": "דן דוד כיתה 107"
+      },
+      "sessions": [
+        {
+          "date": "19.11",
+          "day": "الأربعاء",
+          "time": "12:00 - 14:00",
+          "location": "דן דוד כיתה 107",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "26.11",
+          "day": "الأربعاء",
+          "time": "12:00 - 14:00",
+          "location": "דן דוד כיתה 107",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "3.12",
+          "day": "الأربعاء",
+          "time": "12:00 - 14:00",
+          "location": "דן דוד כיתה 107",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "10.12",
+          "day": "الأربعاء",
+          "time": "12:00 - 14:00",
+          "location": "דן דוד כיתה 107",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "17.12",
+          "day": "الأربعاء",
+          "time": "12:00 - 14:00",
+          "location": "דן דוד כיתה 107",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "7.1",
+          "day": "الأربعاء",
+          "time": "12:00 - 14:00",
+          "location": "דן דוד כיתה 107",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "14.1",
+          "day": "الأربعاء",
+          "time": "12:00 - 14:00",
+          "location": "דן דוד כיתה 107",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "21.1",
+          "day": "الأربعاء",
+          "time": "12:00 - 14:00",
+          "location": "דן דוד כיתה 107",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "TBD",
+          "day": "سيُحدد لاحقاً",
+          "time": "سيُحدد لاحقاً",
+          "location": "سيُحدد لاحقاً",
+          "description": "ماراثون استعداداً للامتحان",
+          "isMarathon": true,
+          "isTBD": true
+        }
+      ]
+    },
+    {
+      "id": "general-chemistry-2",
+      "name": "כימיה כללית 2",
+      "code": "General Chemistry 2",
+      "instructor": "דור גולדשטיין",
+      "addedDate": "2025-11-01",
+      "isCancelled": true,
+      "mainSession": {
+        "day": "الأحد",
+        "time": "18:00 - 20:00",
+        "location": "אורנשטיין 103"
+      },
+      "sessions": [
+        {
+          "date": "30.11",
+          "day": "الأحد",
+          "time": "18:00 - 20:00",
+          "location": "אורנשטיין 103",
+          "description": "تم إلغاء هذه الجلسة",
+          "isMarathon": false,
+          "isCancelled": true
+        },
+        {
+          "date": "7.12",
+          "day": "الأحد",
+          "time": "18:00 - 20:00",
+          "location": "אורנשטיין 103",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "14.12",
+          "day": "الأحد",
+          "time": "18:00 - 20:00",
+          "location": "אורנשטיין 103",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "28.12",
+          "day": "الأحد",
+          "time": "18:00 - 20:00",
+          "location": "אורנשטיין 103",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "4.1",
+          "day": "الأحد",
+          "time": "18:00 - 20:00",
+          "location": "אורנשטיין 103",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "11.1",
+          "day": "الأحد",
+          "time": "18:00 - 20:00",
+          "location": "אורנשטיין 103",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "18.1",
+          "day": "الأحد",
+          "time": "18:00 - 20:00",
+          "location": "אורנשטיין 103",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false
+        },
+        {
+          "date": "TBD",
+          "day": "سيُحدد لاحقاً",
+          "time": "سيُحدد لاحقاً",
+          "location": "سيُحدد لاحقاً",
+          "description": "ماراثون استعداداً للامتحان",
+          "isMarathon": true,
+          "isTBD": true
+        }
+      ]
+    },
+    {
+      "id": "linear-algebra-1a",
+      "name": "אלגברה לינארית 1א",
+      "code": "Linear Algebra 1A",
+      "instructor": "תאמר עבד אלרזאק",
+      "addedDate": "2025-11-01",
+      "mainSession": {
+        "day": "الأحد",
+        "time": "18:00 - 20:00",
+        "location": "زووم (Zoom)"
+      },
+      "zoomLink": "https://us06web.zoom.us/j/85803186698?pwd=ZxMXK9aGd6Ai03mBS06VQUgHT5GFZm.1",
+      "zoomMeetingId": "858 0318 6698",
+      "zoomPasscode": "353696",
+      "sessions": [
+        {
+          "date": "23.11",
+          "day": "الأحد",
+          "time": "18:00 - 20:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "30.11",
+          "day": "الأحد",
+          "time": "18:00 - 20:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "7.12",
+          "day": "الأحد",
+          "time": "18:00 - 20:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "14.12",
+          "day": "الأحد",
+          "time": "18:00 - 20:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "28.12",
+          "day": "الأحد",
+          "time": "18:00 - 20:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "4.1",
+          "day": "الأحد",
+          "time": "18:00 - 20:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "11.1",
+          "day": "الأحد",
+          "time": "18:00 - 20:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "18.1",
+          "day": "الأحد",
+          "time": "18:00 - 20:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "TBD",
+          "day": "سيُحدد لاحقاً",
+          "time": "سيُحدد لاحقاً",
+          "location": "سيُحدد لاحقاً",
+          "description": "ماراثون استعداداً للامتحان",
+          "isMarathon": true,
+          "isTBD": true
+        }
+      ]
+    },
+    {
+      "id": "linear-algebra-1b",
+      "name": "אלגברה לינארית 1ב",
+      "code": "Linear Algebra 1B",
+      "instructor": "תאמר עבד אלרזאק",
+      "addedDate": "2025-11-01",
+      "mainSession": {
+        "day": "الخميس",
+        "time": "18:30 - 20:30",
+        "location": "زووم (Zoom)"
+      },
+      "zoomLink": "https://us06web.zoom.us/j/87875867771?pwd=SOON0wbsx2IBthrSTx2X37qFDriCE2.1",
+      "zoomMeetingId": "878 7586 7771",
+      "zoomPasscode": "030398",
+      "sessions": [
+        {
+          "date": "20.11",
+          "day": "الخميس",
+          "time": "18:30 - 20:30",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "27.11",
+          "day": "الخميس",
+          "time": "18:30 - 20:30",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "4.12",
+          "day": "الخميس",
+          "time": "18:30 - 20:30",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "11.12",
+          "day": "الخميس",
+          "time": "18:30 - 20:30",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "18.12",
+          "day": "الخميس",
+          "time": "18:30 - 20:30",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "8.1",
+          "day": "الخميس",
+          "time": "18:30 - 20:30",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "15.1",
+          "day": "الخميس",
+          "time": "18:30 - 20:30",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "TBD",
+          "day": "سيُحدد لاحقاً",
+          "time": "سيُحدد لاحقاً",
+          "location": "سيُحدد لاحقاً",
+          "description": "ماراثون استعداداً للامتحان",
+          "isMarathon": true,
+          "isTBD": true
+        }
+      ]
+    },
+    {
+      "id": "linear-algebra-1c",
+      "name": "אלגברה לינארית 1ג",
+      "code": "Linear Algebra 1C",
+      "instructor": "תאמר עבד אלרזאק",
+      "addedDate": "2025-12-03",
+      "mainSession": {
+        "day": "الجمعة",
+        "time": "09:00 - 11:00",
+        "location": "زووم (Zoom)"
+      },
+      "zoomLink": "https://us06web.zoom.us/j/81907942005?pwd=3oZW8f9HCZfnUQ40M9EZ7VGPzRSJjW.1",
+      "zoomMeetingId": "819 0794 2005",
+      "zoomPasscode": "485158",
+      "sessions": [
+        {
+          "date": "5.12",
+          "day": "الجمعة",
+          "time": "09:00 - 11:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "12.12",
+          "day": "الجمعة",
+          "time": "09:00 - 11:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "19.12",
+          "day": "الجمعة",
+          "time": "09:00 - 11:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "9.1",
+          "day": "الجمعة",
+          "time": "09:00 - 11:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "16.1",
+          "day": "الجمعة",
+          "time": "09:00 - 11:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "23.1",
+          "day": "الجمعة",
+          "time": "09:00 - 11:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "TBD",
+          "day": "سيُحدد لاحقاً",
+          "time": "سيُحدد لاحقاً",
+          "location": "سيُحدد لاحقاً",
+          "description": "ماراثون استعداداً للامتحان",
+          "isMarathon": true,
+          "isTBD": true
+        }
+      ]
+    }
+  ],
+  "contacts": [
+    {
+      "id": "sawa-team",
+      "icon": "fa-graduation-cap",
+      "title": "فريق تنسيق SAWA",
+      "description": "أسئلة حول جلسات التمكين، الجدول الزمني، ومعلومات البرنامج",
+      "email": "sawa@tauex.tau.ac.il",
+      "phone": "03-640-5252"
+    },
+    {
+      "id": "exact-sciences",
+      "icon": "fa-book-open",
+      "title": "كلية العلوم الدقيقة - مكتب العميد",
+      "description": "الإرشاد الأكاديمي، المساعدة في تسجيل المساقات، والدعم الإداري",
+      "email": "exact-sci@tauex.tau.ac.il",
+      "phone": "03-640-6502"
+    },
+    {
+      "id": "student-support",
+      "icon": "fa-hands-helping",
+      "title": "مركز دعم الطلاب",
+      "description": "استشارة شخصية، إرشاد أكاديمي، وخدمات دعم الصحة النفسية",
+      "email": "dean-students@tauex.tau.ac.il",
+      "phone": "03-640-8765"
+    },
+    {
+      "id": "mentoring",
+      "icon": "fa-chalkboard-teacher",
+      "title": "برنامج الإرشاد الأكاديمي",
+      "description": "دروس خصوصية وإرشاد فردي من طلاب السنوات المتقدمة",
+      "email": "mentoring@tauex.tau.ac.il",
+      "phone": "03-640-7890"
+    },
+    {
+      "id": "it-support",
+      "icon": "fa-laptop",
+      "title": "الدعم التقني وتكنولوجيا المعلومات",
+      "description": "مساعدة في مختبرات الحاسوب، الوصول للبرامج، الواي فاي، والمشاكل التقنية",
+      "email": "helpdesk@tau.ac.il",
+      "phone": "03-640-9999"
+    },
+    {
+      "id": "library",
+      "icon": "fa-book",
+      "title": "خدمات المكتبة",
+      "description": "مساعدة في البحث، أماكن للدراسة، والوصول للموارد الأكاديمية",
+      "email": "library@tau.ac.il",
+      "phone": "03-640-8111"
+    },
+    {
+      "id": "international",
+      "icon": "fa-globe",
+      "title": "مكتب الطلاب الدوليين",
+      "description": "دعم للطلاب الدوليين، أسئلة التأشيرات، والاندماج الثقافي",
+      "email": "int-office@tau.ac.il",
+      "phone": "03-640-6666"
+    },
+    {
+      "id": "accessibility",
+      "icon": "fa-universal-access",
+      "title": "خدمات الوصول وإمكانية الدخول",
+      "description": "دعم للطلاب ذوي الإعاقات والاحتياجات التعليمية الخاصة",
+      "email": "accessibility@tau.ac.il",
+      "phone": "03-640-7777"
+    }
+  ]
+}
