@@ -10,6 +10,7 @@
       "code": "Linear Algebra 1A",
       "instructor": "תאמר עבד אלרזאק",
       "addedDate": "2026-04-22",
+      "isCancelled": true,
       "mainSession": {
         "day": "الأحد",
         "time": "18:00 - 20:00",
@@ -301,27 +302,27 @@
           "day": "اللإثنين",
           "time": "14:00 - 16:00",
           "location": "زووم (Zoom)",
-          "description": "لن تتم الجلسة هذا الأسبوع - سيتم تحديد جلسة بديلة لاحقاً",
+          "description": "جلسة تمكين أسبوعية",
           "isMarathon": false,
-          "isCancelled": true
+          "isZoom": true
         },
         {
           "date": "1.6",
           "day": "اللإثنين",
           "time": "14:00 - 16:00",
           "location": "زووم (Zoom)",
-          "description": "جلسة تمكين أسبوعية",
+          "description": "تم إلغاء الجلسة - الجلسات ستستأنف في 15.6",
           "isMarathon": false,
-          "isZoom": true
+          "isCancelled": true
         },
         {
           "date": "8.6",
           "day": "اللإثنين",
           "time": "14:00 - 16:00",
           "location": "زووم (Zoom)",
-          "description": "جلسة تمكين أسبوعية",
+          "description": "تم إلغاء الجلسة - الجلسات ستستأنف في 15.6",
           "isMarathon": false,
-          "isZoom": true
+          "isCancelled": true
         },
         {
           "date": "15.6",
