@@ -381,6 +381,86 @@
       ]
     },
     {
+      "id": "calculus-2a",
+      "name": "חדו\"א 2 א'",
+      "code": "Calculus 2A",
+      "instructor": "שלמה אשל",
+      "addedDate": "2026-05-31",
+      "mainSession": {
+        "day": "اللإثنين",
+        "time": "11:00 - 13:00",
+        "location": "زووم (Zoom)"
+      },
+      "zoomLink": "https://us06web.zoom.us/j/81312393438?pwd=ka7GT87tSNh3jKGmP5JOEkRmrgiN0Z.1",
+      "zoomMeetingId": "813 1239 3438",
+      "zoomPasscode": "315175",
+      "sessions": [
+        {
+          "date": "8.6",
+          "day": "اللإثنين",
+          "time": "11:00 - 13:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "15.6",
+          "day": "اللإثنين",
+          "time": "11:00 - 13:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "22.6",
+          "day": "اللإثنين",
+          "time": "11:00 - 13:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "29.6",
+          "day": "اللإثنين",
+          "time": "11:00 - 13:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "6.7",
+          "day": "اللإثنين",
+          "time": "11:00 - 13:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "13.7",
+          "day": "اللإثنين",
+          "time": "11:00 - 13:00",
+          "location": "زووم (Zoom)",
+          "description": "جلسة تمكين أسبوعية",
+          "isMarathon": false,
+          "isZoom": true
+        },
+        {
+          "date": "TBD",
+          "day": "سيُحدد لاحقاً",
+          "time": "سيُحدد لاحقاً",
+          "location": "سيُحدد لاحقاً",
+          "description": "ماراثون استعداداً للامتحان",
+          "isMarathon": true,
+          "isTBD": true
+        }
+      ]
+    },
+    {
       "id": "calculus-2b",
       "name": "חדו\"א 2 ב'",
       "code": "Calculus 2B",
